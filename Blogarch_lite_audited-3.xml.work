@@ -459,6 +459,19 @@ img,video,iframe{max-width:100%;height:auto}
 /* ===== Performance: content-visibility للاقسام البعيدة (تحت الطية) ===== */
 #main > section:not(.ba-hero),.ba-features-strip,.ba-best-section,.ba-learn-strip,.ba-final-strip{content-visibility:auto;contain-intrinsic-size:auto 900px}
 /* ===== End content-visibility ===== */
+
+/* ===== تحسين حقوق النشر (Footer copyright) ===== */
+.footer-bottom{text-align:center;padding-top:var(--sp-xl);margin-top:var(--sp-xl);border-top:1px solid var(--border);display:block}
+.footer-copyright{font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:var(--fw-medium);color:var(--text-muted);line-height:var(--lh-relaxed);transition:color .3s ease}
+.footer-copyright:hover{color:var(--primary-color)}
+.footer-copyright a{color:var(--primary-color);text-decoration:none;font-weight:var(--fw-semibold);transition:color .3s ease}
+.footer-copyright a:hover{color:var(--secondary-color);text-decoration:underline}
+body[data-dark] .footer-copyright,body.dark-mode .footer-copyright{color:var(--text-soft)}
+@media (max-width:640px){
+  .footer-bottom{padding-top:var(--sp-lg);margin-top:var(--sp-lg)}
+  .footer-copyright{font-size:var(--fs-xs)}
+}
+/* ===== نهاية تحسين حقوق النشر ===== */
 ]]></b:skin>
 </head>
 
@@ -1574,7 +1587,6 @@ img,video,iframe{max-width:100%;height:auto}
 
   <div class='footer-bottom'>
     <p class='footer-copyright'>&#169; <span id='fin-year'>2026</span> أشرف أياو. جميع الحقوق محفوظة.</p>
-    <p class='footer-powered'>صُنع بـ &#10084; على Blogger</p>
   </div>
 </footer>
 </b:includable>
