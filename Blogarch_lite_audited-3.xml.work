@@ -393,6 +393,33 @@ window.addEventListener('error',function(e){
   .btn{justify-content:center}
 }
 /* ===== End Hero v2 ===== */
+
+/* ===== Site Footer (design system) ===== */
+.site-footer{background:var(--bg-subtle);border-top:1px solid var(--border);padding:var(--sp-3xl) var(--sp-md) var(--sp-xl);margin-top:var(--sp-4xl)}
+.footer-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--sp-xl)}
+.footer-title{font-family:var(--font-display);font-size:var(--fs-xl);font-weight:var(--fw-bold);color:var(--text);margin-bottom:var(--sp-sm)}
+.footer-heading{font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:var(--fw-semibold);color:var(--text);text-transform:uppercase;letter-spacing:var(--ls-wide);margin-bottom:var(--sp-md)}
+.footer-desc,.footer-tagline{font-size:var(--fs-sm);color:var(--text-muted);line-height:var(--lh-relaxed)}
+.footer-links ul,.footer-sections ul{list-style:none;padding:0;margin:0}
+.footer-links li,.footer-sections li{margin-bottom:var(--sp-sm)}
+.footer-links a,.footer-sections a{font-size:var(--fs-sm);color:var(--text-muted);text-decoration:none;transition:color .2s ease,transform .2s ease;display:inline-block}
+.footer-links a:hover,.footer-sections a:hover{color:var(--primary-color);transform:translateX(-2px)}
+.footer-social-links{display:flex;gap:var(--sp-sm);flex-wrap:wrap}
+.footer-social-links a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:var(--r-full);background:var(--bg-elevated);border:1px solid var(--border);color:var(--text-muted);font-size:var(--fs-lg);transition:all .3s ease}
+.footer-social-links a:hover{background:var(--primary-color);color:#fff;border-color:var(--primary-color);transform:translateY(-3px);box-shadow:var(--sh-md)}
+.footer-divider{height:1px;background:var(--border);margin:var(--sp-xl) 0}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--sp-sm)}
+.footer-copyright,.footer-powered{font-size:var(--fs-xs);color:var(--text-muted)}
+@media (max-width:768px){
+  .footer-container{grid-template-columns:1fr;text-align:center}
+  .footer-social-links{justify-content:center}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+body[data-dark] .site-footer,body.dark-mode .site-footer{background:var(--bg-elevated);border-top-color:var(--border)}
+@media (prefers-reduced-motion:reduce){
+  .footer-links a,.footer-sections a,.footer-social-links a{transition:none}
+}
+/* ===== End Site Footer ===== */
 ]]></b:skin>
 </head>
 
@@ -631,10 +658,13 @@ window.addEventListener('error',function(e){
                </a>
              </div>
              <ul class='ba-hero-socials hero-reveal' aria-label='روابط التواصل الاجتماعي'>
-               <li><a class='ba-social' href='#' aria-label='X'><i class='fab fa-x-twitter'/></a></li>
-               <li><a class='ba-social' href='#' aria-label='LinkedIn'><i class='fab fa-linkedin-in'/></a></li>
-               <li><a class='ba-social' href='#' aria-label='YouTube'><i class='fab fa-youtube'/></a></li>
-               <li><a class='ba-social' href='#' aria-label='GitHub'><i class='fab fa-github'/></a></li>
+               <!-- روابط حقيقية: عدّلها من هنا أو من لوحة تحكم Blogger -->
+               <li><a aria-label='حسابي على X (تويتر)' class='ba-social' href='https://x.com/achraf_ayaou' rel='noopener noreferrer' target='_blank'><i class='fab fa-x-twitter'/></a></li>
+               <li><a aria-label='حسابي على إنستغرام' class='ba-social' href='https://www.instagram.com/achraf_ayaou/' rel='noopener noreferrer' target='_blank'><i class='fab fa-instagram'/></a></li>
+               <li><a aria-label='قناتي على يوتيوب' class='ba-social' href='https://youtube.com/@electrelavi' rel='noopener noreferrer' target='_blank'><i class='fab fa-youtube'/></a></li>
+               <li><a aria-label='حسابي على فيسبوك' class='ba-social' href='https://m.facebook.com/Achraf.ayaouu/' rel='noopener noreferrer' target='_blank'><i class='fab fa-facebook-f'/></a></li>
+               <li><a aria-label='حسابي على لينكدإن' class='ba-social' href='https://www.linkedin.com/in/achraf-ayaou-40a970196' rel='noopener noreferrer' target='_blank'><i class='fab fa-linkedin-in'/></a></li>
+               <li><a aria-label='حسابي على GitHub' class='ba-social' href='https://github.com/AchRafAyaOu' rel='noopener noreferrer' target='_blank'><i class='fab fa-github'/></a></li>
              </ul>
            </div>
          </div>
@@ -1461,62 +1491,51 @@ window.addEventListener('error',function(e){
       <b:widget-setting name='content'/>
     </b:widget-settings>
     <b:includable id='main'>
-<footer class='fin-footer arabic-text' role='contentinfo'>
-  <div class='fin-footer-inner'>
-    <div class='fin-footer-top'>
-
-      <!-- Brand -->
-      <div class='fin-footer-brand-col'>
-        <a class='footer-brand-wrap' expr:href='data:blog.homepageUrl'>
-          <span class='footer-brand-dot'/>
-          <span class='footer-brand-name'>أشرف أياو</span>
-        </a>
-        <p class='footer-brand-desc'>كاتب محتوى &#183; مقد&#1616;&#1617;م بودكاست &#183; مراجع تقني</p>
-        <p class='footer-brand-tagline'>أكتب في الثقافة والتقنية وأقد&#1616;&#1617;م محتوى يستحق التأمل.</p>
-      </div>
-
-      <!-- Nav columns -->
-      <div class='fin-footer-nav-cols'>
-        <div class='fin-footer-col'>
-          <h4 class='fin-footer-col-title'>المحتوى</h4>
-          <a href='/p/blog-page_29.html'><i class='fas fa-pen-fancy'/> المدونة</a>
-          <a href='/p/blog-page_73.html'><i class='fas fa-quote-right'/> مقولات</a>
-          <a href='/p/blog-page_52.html'><i class='fas fa-graduation-cap'/> تعل&#1617;م</a>
-          <a href='/p/blog-page_54.html'><i class='fas fa-podcast'/> بودكاست</a>
-        </div>
-        <div class='fin-footer-col'>
-          <h4 class='fin-footer-col-title'>أشرف</h4>
-          <a href='/p/blog-page_7.html'><i class='fas fa-user'/> عني</a>
-          <a href='/p/blog-page_96.html'><i class='fas fa-briefcase'/> أعمالي</a>
-          <a href='/p/blog-page_05.html'><i class='fas fa-envelope'/> تواصل</a>
-        </div>
-      </div>
-
-      <!-- Socials -->
-      <div class='fin-footer-socials-wrap'>
-        <h4 class='fin-footer-col-title'>تابعني</h4>
-        <div class='fin-footer-socials'>
-          <a aria-label='تويتر' class='fin-footer-social' href='https://x.com/achraf_ayaou' rel='noopener noreferrer' style='background:var(--social-twitter)' target='_blank'><i class='fab fa-twitter'/></a>
-          <a aria-label='يوتيوب' class='fin-footer-social' href='https://youtube.com/@electrelavi' rel='noopener noreferrer' style='background:var(--social-youtube)' target='_blank'><i class='fab fa-youtube'/></a>
-          <a aria-label='انستغرام' class='fin-footer-social' href='https://www.instagram.com/achraf_ayaou/' rel='noopener noreferrer' style='background:var(--social-instagram)' target='_blank'><i class='fab fa-instagram'/></a>
-          <a aria-label='فيسبوك' class='fin-footer-social' href='https://m.facebook.com/Achraf.ayaouu/' rel='noopener noreferrer' style='background:var(--social-facebook)' target='_blank'><i class='fab fa-facebook-f'/></a>
-          <a aria-label='لينكدإن' class='fin-footer-social' href='https://www.linkedin.com/in/achraf-ayaou-40a970196' rel='noopener noreferrer' style='background:var(--social-linkedin)' target='_blank'><i class='fab fa-linkedin-in'/></a>
-          <a aria-label='تيك توك' class='fin-footer-social' href='https://www.tiktok.com/@a_lavish_p' rel='noopener noreferrer' style='background:var(--social-tiktok)' target='_blank'><i class='fab fa-tiktok'/></a>
-        </div>
-      </div>
+<footer class='site-footer arabic-text' role='contentinfo'>
+  <div class='footer-container'>
+    <div class='footer-col footer-brand'>
+      <h3 class='footer-title'>أشرف أياو</h3>
+      <p class='footer-desc'>كاتب محتوى &#183; مقد&#1616;&#1617;م بودكاست &#183; مراجع تقني</p>
+      <p class='footer-tagline'>أكتب في الثقافة والتقنية والأفكار التي تستحق التأمل</p>
     </div>
 
-    <hr class='fin-footer-divider'/>
+    <div class='footer-col footer-links'>
+      <h4 class='footer-heading'>روابط سريعة</h4>
+      <ul>
+        <li><a expr:href='data:blog.homepageUrl'>الرئيسية</a></li>
+        <li><a href='/p/blog-page_7.html'>عني</a></li>
+        <li><a href='/p/blog-page_29.html'>المقالات</a></li>
+        <li><a href='/p/blog-page_05.html'>تواصل</a></li>
+      </ul>
+    </div>
 
-    <div class='fin-footer-bottom'>
-      <div class='fin-footer-copy'>
-        <span>&#169; <span id='fin-year'>2026</span></span>
-        <span class='fin-copy-dot'>&#183;</span>
-        <span class='fin-copy-name'>Achrafayaou</span>
-        <span class='fin-copy-dot'>&#183;</span>
-        <span>جميع الحقوق محفوظة</span>
+    <div class='footer-col footer-sections'>
+      <h4 class='footer-heading'>الأقسام</h4>
+      <ul>
+        <li><a href='/p/blog-page_52.html'>تعلّم</a></li>
+        <li><a href='/p/blog-page_54.html'>بودكاست</a></li>
+        <li><a href='/p/blog-page_73.html'>مقولات</a></li>
+        <li><a href='/p/blog-page_96.html'>أعمالي</a></li>
+      </ul>
+    </div>
+
+    <div class='footer-col footer-social'>
+      <h4 class='footer-heading'>تابعني</h4>
+      <div class='footer-social-links'>
+        <a aria-label='حسابي على X (تويتر)' href='https://x.com/achraf_ayaou' rel='noopener noreferrer' target='_blank'><i class='fab fa-x-twitter'/></a>
+        <a aria-label='حسابي على إنستغرام' href='https://www.instagram.com/achraf_ayaou/' rel='noopener noreferrer' target='_blank'><i class='fab fa-instagram'/></a>
+        <a aria-label='قناتي على يوتيوب' href='https://youtube.com/@electrelavi' rel='noopener noreferrer' target='_blank'><i class='fab fa-youtube'/></a>
+        <a aria-label='حسابي على فيسبوك' href='https://m.facebook.com/Achraf.ayaouu/' rel='noopener noreferrer' target='_blank'><i class='fab fa-facebook-f'/></a>
+        <a aria-label='حسابي على لينكدإن' href='https://www.linkedin.com/in/achraf-ayaou-40a970196' rel='noopener noreferrer' target='_blank'><i class='fab fa-linkedin-in'/></a>
       </div>
     </div>
+  </div>
+
+  <div class='footer-divider'></div>
+
+  <div class='footer-bottom'>
+    <p class='footer-copyright'>&#169; <span id='fin-year'>2026</span> أشرف أياو. جميع الحقوق محفوظة.</p>
+    <p class='footer-powered'>صُنع بـ &#10084; على Blogger</p>
   </div>
 </footer>
 </b:includable>
