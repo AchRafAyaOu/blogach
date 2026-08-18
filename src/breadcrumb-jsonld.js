@@ -5,6 +5,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.breadcrumbJsonldInitialized) return;
+  window.BlogArch._modules.breadcrumbJsonldInitialized = true;
+
   var nav = document.querySelector('nav.breadcrumb');
   if(!nav) return;
   var items = [];

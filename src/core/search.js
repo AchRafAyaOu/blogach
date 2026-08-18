@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.searchInitialized) return;
+  window.BlogArch._modules.searchInitialized = true;
+
   /* ── Live search in panel (Blogger Feed API) — المصدر الرئيسي للبحث ──
        يأخذ الأولوية على DOM-search في blogarch.js §12 عبر الراية أدناه
      ── */

@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.renderersInitialized) return;
+  window.BlogArch._modules.renderersInitialized = true;
+
   var CDN = 'https://cdn.jsdelivr.net/gh/AchRafAyaOu/blogs_arch@main';
 
   /* ── Helpers: safe DOM creation (XSS-protected) ── */
@@ -130,5 +136,12 @@
     });
     grid.classList.add('is-visible');
   };
+
+  /* ── Expose via window.BlogArch.Renderers (sub-namespace) ──
+     تُبقى window.render* كـ aliases للتوافق مع homepage-data.js */
+  window.BlogArch.Renderers = window.BlogArch.Renderers || {};
+  window.BlogArch.Renderers.renderWorks  = window.renderWorks;
+  window.BlogArch.Renderers.renderLearn  = window.renderLearn;
+  window.BlogArch.Renderers.renderPodcast = window.renderPodcast;
 
 })();

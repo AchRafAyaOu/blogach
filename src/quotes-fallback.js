@@ -5,6 +5,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.quotesFallbackInitialized) return;
+  window.BlogArch._modules.quotesFallbackInitialized = true;
+
   var CDN = 'https://cdn.jsdelivr.net/gh/AchRafAyaOu/blogs_arch@main';
   var quotesEl  = document.getElementById('fin-quote-text');
   var sourceEl  = document.getElementById('fin-quote-source');

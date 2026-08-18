@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.lightboxInitialized) return;
+  window.BlogArch._modules.lightboxInitialized = true;
+
   var lb = document.getElementById('fin-lightbox');
   var lbImg = document.getElementById('fin-lightbox-img');
   var lbClose = document.getElementById('fin-lightbox-close');

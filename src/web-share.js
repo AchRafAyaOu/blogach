@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.webShareInitialized) return;
+  window.BlogArch._modules.webShareInitialized = true;
+
   var bar = document.getElementById('post-share-bar');
   if(!bar) return;
   var title = document.title;

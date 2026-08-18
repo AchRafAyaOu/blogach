@@ -5,6 +5,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.newsletterInitialized) return;
+  window.BlogArch._modules.newsletterInitialized = true;
+
   /* يُستخدم PROXY_URL الموحَّد من window.BlogArch لكلٍّ من:
      - نماذج التواصل (action:'contact')
      - النشرة البريدية  (action:'newsletter')  */

@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.imageDedupInitialized) return;
+  window.BlogArch._modules.imageDedupInitialized = true;
+
   var featured = document.querySelector('.post-featured-image img');
   var body = document.getElementById('post-body');
   if(!featured || !body) return;

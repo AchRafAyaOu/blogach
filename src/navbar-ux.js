@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.navbarUxInitialized) return;
+  window.BlogArch._modules.navbarUxInitialized = true;
+
   /* ── 1) Navbar scroll state + reading progress + scroll-to-top ── */
   var nb = document.getElementById('navbar');
   var rp = document.getElementById('reading-progress');
@@ -119,7 +125,7 @@
 
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape'){
-      if(typeof closeDrawer === 'function') closeDrawer();
+      if(window.BlogArch && window.BlogArch.Drawer && typeof window.BlogArch.Drawer.close === 'function') window.BlogArch.Drawer.close();
       closeSearchPanel();
       return;
     }

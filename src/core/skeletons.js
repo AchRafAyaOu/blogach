@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.skeletonsInitialized) return;
+  window.BlogArch._modules.skeletonsInitialized = true;
+
   var sk = document.getElementById('posts-skeleton');
   var pg = document.getElementById('posts-grid');
   if(!sk || !pg) return;

@@ -4,6 +4,14 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  if (window.BlogArch._modules && window.BlogArch._modules.themeInitialized) {
+      return;
+  }
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  window.BlogArch._modules.themeInitialized = true;
+
   /* ── Load saved prefs ── */
   var savedTheme = localStorage.getItem('ba-theme') || 'default';
 
@@ -121,6 +129,15 @@
     }
   }
   window.buildStars = buildStars;
+
+  /* ── Resize → rebuild stars in dark mode (restored from inline core-v16) ── */
+  window.addEventListener('resize', function(){
+    if(savedDark) buildStars();
+  });
+
+  /* Expose for other modules */
+  window.BlogArch.Theme = window.BlogArch.Theme || {};
+  window.BlogArch.Theme.buildStars = buildStars;
 
   /* ── Changing Role ── */
   var roleEl = document.getElementById('fin-changing-role');

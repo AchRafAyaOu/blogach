@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.homepageUxInitialized) return;
+  window.BlogArch._modules.homepageUxInitialized = true;
+
   /* ─── 1) Scroll-reveal via IntersectionObserver ─────────────────────────
      يُضيف data-reveal تلقائياً لعناصر الصفحة الرئيسية ثم يُراقبها      */
   var REVEAL_SELS = [

@@ -4,12 +4,20 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch.Drawer = window.BlogArch.Drawer || {};
+  if (window.BlogArch.Drawer._isInitialized) {
+      return;
+  }
+  window.BlogArch.Drawer._isInitialized = true;
+
   var hamburger = document.getElementById('hamburger');
   var menuOverlay = document.getElementById('menu-overlay');
   var mobileDrawer = document.getElementById('mobile-drawer');
 
   var FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
-  var _lastFocus = null;
+  var _lastFocus = null; // Private scope for now, exposed via getter/setter if needed
 
   function trapFocus(container, e){
     if(e.key !== 'Tab' || !container) return;
@@ -46,9 +54,16 @@
     restoreFocus();
   }
 
-  /* aliases for backward compat */
-  window.openSidebar = openDrawer;
-  window.closeSidebar = closeDrawer;
+  /* Expose for other modules */
+  window.BlogArch.Drawer.open = openDrawer;
+  window.BlogArch.Drawer.close = closeDrawer;
+  window.BlogArch.Drawer.trapFocus = trapFocus; // Expose trapFocus for homepage-data.js
+  window.BlogArch.Drawer._getLastFocus = function() { return _lastFocus; }; // Expose a getter for _lastFocus
+  window.BlogArch.Drawer._setLastFocus = function(el) { _lastFocus = el; }; // Expose a setter for _lastFocus
+
+  /* aliases for backward compat - ensure they use the new exposed methods */
+  window.openSidebar = window.BlogArch.Drawer.open;
+  window.closeSidebar = window.BlogArch.Drawer.close;
 
   if(hamburger) hamburger.addEventListener('click', function(){
     mobileDrawer && mobileDrawer.classList.contains('active') ? closeDrawer() : openDrawer();
@@ -69,18 +84,17 @@
 
   /* Focus trap + ESC inside drawer */
   document.addEventListener('keydown', function(e){
-    if(mobileDrawer && mobileDrawer.classList.contains('active')) trapFocus(mobileDrawer, e);
+    if(mobileDrawer && mobileDrawer.classList.contains('active')) window.BlogArch.Drawer.trapFocus(mobileDrawer, e);
+    if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('active')) {
+      window.BlogArch.Drawer.close();
+    }
   });
 
   /* Close drawer on nav-link click (except about/contact) */
   document.querySelectorAll('.mobile-drawer .nav-link').forEach(function(l){
     l.addEventListener('click', function(){
-      if(l.id !== 'drawer-about-open' && l.id !== 'drawer-contact-open') closeDrawer();
+      if(l.id !== 'drawer-about-open' && l.id !== 'drawer-contact-open') window.BlogArch.Drawer.close();
     });
   });
-
-  /* Expose for other modules */
-  window.openDrawer = openDrawer;
-  window.closeDrawer = closeDrawer;
 
 })();

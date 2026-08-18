@@ -5,6 +5,14 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  if (window.BlogArch._modules && window.BlogArch._modules.homepageDataInitialized) {
+      return;
+  }
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  window.BlogArch._modules.homepageDataInitialized = true;
+
   var isIndex = location.pathname === '/' || location.pathname === '/search' || location.pathname.indexOf('/search/label') === 0;
   if(!isIndex) return;
 
@@ -156,7 +164,6 @@
     var modal = document.getElementById('fin-learn-modal');
     if(!modal) return;
     var modalOpener = null;
-    var _origAddOpen = modal.classList.add.bind(modal.classList);
     function closeModal(){
       modal.classList.remove('open');
       document.body.style.overflow = '';
@@ -167,7 +174,7 @@
     }
     var mo = new MutationObserver(function(){
       if(modal.classList.contains('open') && !modalOpener){
-        modalOpener = _lastFocus || document.activeElement;
+        modalOpener = (window.BlogArch.Drawer && window.BlogArch.Drawer._getLastFocus()) || document.activeElement;
       }
     });
     mo.observe(modal, {attributes: true, attributeFilter: ['class']});
@@ -178,7 +185,7 @@
     document.addEventListener('keydown', function(e){
       if(modal.classList.contains('open')){
         if(e.key === 'Escape') closeModal();
-        else trapFocus(modal, e);
+        else if(window.BlogArch.Drawer && window.BlogArch.Drawer.trapFocus) window.BlogArch.Drawer.trapFocus(modal, e);
       }
     });
   })();

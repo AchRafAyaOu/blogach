@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.miniCardsInitialized) return;
+  window.BlogArch._modules.miniCardsInitialized = true;
+
   var FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
   var overlay   = document.getElementById('fin-mc-overlay');
   var mcAbout   = document.getElementById('fin-mc-about');

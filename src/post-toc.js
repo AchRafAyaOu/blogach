@@ -5,6 +5,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.postTocInitialized) return;
+  window.BlogArch._modules.postTocInitialized = true;
+
   var body = document.getElementById('post-body');
   if(!body) return;
 

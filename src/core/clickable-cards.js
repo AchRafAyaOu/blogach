@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.clickableCardsInitialized) return;
+  window.BlogArch._modules.clickableCardsInitialized = true;
+
   // Clickable post cards — يفتح رابط المشاركة بضغطة على البطاقة كاملة
   document.addEventListener('click', function(e){
     var card = e.target.closest('.fin-clickable-card');

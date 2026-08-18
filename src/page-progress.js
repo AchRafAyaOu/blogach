@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.pageProgressInitialized) return;
+  window.BlogArch._modules.pageProgressInitialized = true;
+
   var bar = document.getElementById('page-progress');
   if(!bar) return;
 

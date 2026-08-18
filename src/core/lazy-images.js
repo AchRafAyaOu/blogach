@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.lazyImagesInitialized) return;
+  window.BlogArch._modules.lazyImagesInitialized = true;
+
   if(!('IntersectionObserver' in window)){
     /* Fallback: load all lazy images immediately */
     document.querySelectorAll('img.lazy[data-src]').forEach(function(img){

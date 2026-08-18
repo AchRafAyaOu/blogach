@@ -4,6 +4,12 @@
 (function(){
   'use strict';
 
+  // init guard
+  window.BlogArch = window.BlogArch || {};
+  window.BlogArch._modules = window.BlogArch._modules || {};
+  if (window.BlogArch._modules.formsInitialized) return;
+  window.BlogArch._modules.formsInitialized = true;
+
   var cForm = document.getElementById('contact-form');
   if(!cForm) return;
 
