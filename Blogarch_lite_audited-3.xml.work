@@ -698,7 +698,7 @@ img,video,iframe{max-width:100%;height:auto}
              </div>
              <ul class='ba-hero-socials hero-reveal' aria-label='روابط التواصل الاجتماعي'>
                <!-- روابط حقيقية: عدّلها من هنا أو من لوحة تحكم Blogger -->
-               <li><a aria-label='حسابي على X (تويتر)' class='ba-social' href='https://x.com/achraf_ayaou' rel='noopener noreferrer' target='_blank'><i class='fab fa-x-twitter'/></a></li>
+               <li><a aria-label='حسابي على X (تويتر)' class='ba-social' href='https://x.com/AchrafAyaou' rel='noopener noreferrer' target='_blank'><i class='fab fa-x-twitter'/></a></li>
                <li><a aria-label='حسابي على إنستغرام' class='ba-social' href='https://www.instagram.com/achraf_ayaou/' rel='noopener noreferrer' target='_blank'><i class='fab fa-instagram'/></a></li>
                <li><a aria-label='قناتي على يوتيوب' class='ba-social' href='https://youtube.com/@electrelavi' rel='noopener noreferrer' target='_blank'><i class='fab fa-youtube'/></a></li>
                <li><a aria-label='حسابي على فيسبوك' class='ba-social' href='https://m.facebook.com/Achraf.ayaouu/' rel='noopener noreferrer' target='_blank'><i class='fab fa-facebook-f'/></a></li>
@@ -993,7 +993,7 @@ img,video,iframe{max-width:100%;height:auto}
             <h1 class='contact-page-h1'>أرسل رسالتك</h1>
             <p class='contact-page-sub'>هل لديك استفسار أو تريد التعاون&#1567; يسعدني الرد في أقرب وقت.</p>
             <div class='contact-page-socials'>
-              <a aria-label='تويتر' class='cps-link' href='https://x.com/achraf_ayaou' rel='noopener noreferrer' style='--sc:var(--social-twitter)' target='_blank'><i class='fab fa-twitter'/></a>
+              <a aria-label='تويتر' class='cps-link' href='https://x.com/AchrafAyaou' rel='noopener noreferrer' style='--sc:var(--social-twitter)' target='_blank'><i class='fab fa-twitter'/></a>
               <a aria-label='يوتيوب' class='cps-link' href='https://youtube.com/@electrelavi' rel='noopener noreferrer' style='--sc:#FF0000' target='_blank'><i class='fab fa-youtube'/></a>
               <a aria-label='انستغرام' class='cps-link' href='https://www.instagram.com/achraf_ayaou/' rel='noopener noreferrer' style='--sc:#E1306C' target='_blank'><i class='fab fa-instagram'/></a>
             </div>
@@ -1561,7 +1561,7 @@ img,video,iframe{max-width:100%;height:auto}
     <div class='footer-col footer-social'>
       <h4 class='footer-heading'>تابعني</h4>
       <div class='footer-social-links'>
-        <a aria-label='حسابي على X (تويتر)' href='https://x.com/achraf_ayaou' rel='noopener noreferrer' target='_blank'><i class='fab fa-x-twitter'/></a>
+        <a aria-label='حسابي على X (تويتر)' href='https://x.com/AchrafAyaou' rel='noopener noreferrer' target='_blank'><i class='fab fa-x-twitter'/></a>
         <a aria-label='حسابي على إنستغرام' href='https://www.instagram.com/achraf_ayaou/' rel='noopener noreferrer' target='_blank'><i class='fab fa-instagram'/></a>
         <a aria-label='قناتي على يوتيوب' href='https://youtube.com/@electrelavi' rel='noopener noreferrer' target='_blank'><i class='fab fa-youtube'/></a>
         <a aria-label='حسابي على فيسبوك' href='https://m.facebook.com/Achraf.ayaouu/' rel='noopener noreferrer' target='_blank'><i class='fab fa-facebook-f'/></a>
@@ -2501,7 +2501,7 @@ function finOpenLesson(url,title){
   </div>
   <p class='fin-mc-bio arabic-text'>كاتب ومراجع تقني وصانع محتوى رقمي. أكتب في الثقافة والتقنية والأفكار التي تستحق التأمل.</p>
   <div class='fin-mc-socials'>
-    <a aria-label='تويتر' class='fin-mc-social' href='https://x.com/achraf_ayaou' rel='noopener noreferrer' style='background:var(--social-twitter)' target='_blank'><i class='fab fa-twitter'/></a>
+    <a aria-label='تويتر' class='fin-mc-social' href='https://x.com/AchrafAyaou' rel='noopener noreferrer' style='background:var(--social-twitter)' target='_blank'><i class='fab fa-twitter'/></a>
     <a aria-label='يوتيوب' class='fin-mc-social' href='https://youtube.com/@electrelavi' rel='noopener noreferrer' style='background:var(--social-youtube)' target='_blank'><i class='fab fa-youtube'/></a>
     <a aria-label='انستغرام' class='fin-mc-social' href='https://www.instagram.com/achraf_ayaou/' rel='noopener noreferrer' style='background:var(--social-instagram)' target='_blank'><i class='fab fa-instagram'/></a>
     <a aria-label='فيسبوك' class='fin-mc-social' href='https://m.facebook.com/Achraf.ayaouu/' rel='noopener noreferrer' style='background:var(--social-facebook)' target='_blank'><i class='fab fa-facebook-f'/></a>
