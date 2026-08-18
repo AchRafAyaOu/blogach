@@ -14,7 +14,6 @@
   <link href='https://fonts.googleapis.com' rel='preconnect'/>
   <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
   <link crossorigin='anonymous' href='https://cdn.jsdelivr.net' rel='preconnect'/>
-  <link crossorigin='anonymous' href='https://cdnjs.cloudflare.com' rel='preconnect'/>
   <link href='https://lh3.googleusercontent.com' rel='dns-prefetch'/>
   <link href='https://resources.blogblog.com' rel='dns-prefetch'/>
   <link href='https://api.telegram.org' rel='dns-prefetch'/>
@@ -184,32 +183,48 @@ ASSETS: {
       '/styles/blogarch.css',
       '/styles/nav.css'
     ],
-    js: [
-      '/src/core/theme.js',
-      '/src/core/drawer.js',
-      '/src/core/search.js',
-      '/src/core/forms.js',
-      '/src/core/renderers.js',
-      '/src/core/skeletons.js',
-      '/src/core/lazy-images.js',
-      '/src/core/clickable-cards.js',
-      '/src/core/homepage-data.js',
-      '/src/navbar-ux.js',
-      '/src/mini-cards.js',
-      '/src/quotes-fallback.js',
-      '/src/web-share.js',
-      '/src/page-progress.js',
-      '/src/lightbox.js',
-      '/src/breadcrumb-jsonld.js',
-      '/src/newsletter.js',
-      '/src/post-toc.js',
-      '/src/image-dedup.js',
-      '/src/homepage-ux.js',
-      '/src/blogarch.js',
-      '/src/Blogarch.lessons.js',
-      '/src/Blogarch.contact.js',
-      '/data/Blogarch.data.js'
-    ]
+    js: (function(){
+      var js = [];
+      /* critical — كل الصفحات */
+      js.push('/src/core/theme.js');
+      js.push('/src/core/drawer.js');
+      js.push('/src/core/search.js');
+      js.push('/src/core/lazy-images.js');
+      js.push('/src/navbar-ux.js');
+      js.push('/src/mini-cards.js');
+      js.push('/src/quotes-fallback.js');
+      js.push('/src/blogarch.js');
+      js.push('/data/Blogarch.data.js');
+      /* homepage فقط */
+      <b:if cond='data:view.isHomepage'>
+        js.push('/src/core/renderers.js');
+        js.push('/src/core/skeletons.js');
+        js.push('/src/core/clickable-cards.js');
+        js.push('/src/core/homepage-data.js');
+        js.push('/src/newsletter.js');
+        js.push('/src/homepage-ux.js');
+      </b:if>
+      /* صفحات المقالات فقط */
+      <b:if cond='data:view.isPost'>
+        js.push('/src/post-toc.js');
+        js.push('/src/web-share.js');
+        js.push('/src/page-progress.js');
+        js.push('/src/lightbox.js');
+        js.push('/src/breadcrumb-jsonld.js');
+        js.push('/src/image-dedup.js');
+      </b:if>
+      /* الصفحات الثابتة فقط */
+      <b:if cond='data:view.isPage'>
+        <b:if cond='data:blog.url contains &quot;blog-page_05&quot;'>
+          js.push('/src/core/forms.js');
+          js.push('/src/Blogarch.contact.js');
+        </b:if>
+        <b:if cond='data:blog.url contains &quot;blog-page_52&quot;'>
+          js.push('/src/Blogarch.lessons.js');
+        </b:if>
+      </b:if>
+      return js;
+    })()
   }
 };
 </script>
@@ -376,12 +391,12 @@ window.addEventListener('error',function(e){
 .btn--lg{padding:.9rem 1.8rem;font-size:var(--fs-lg)}
 .btn--sm{padding:.45rem 1rem;font-size:var(--fs-sm)}
 /* Entrance animation (fade-in + slide-up) */
-.hero-reveal{opacity:0;transform:translateY(24px);animation:baHeroIn .7s var(--ease-out) forwards}
-.hero-reveal:nth-child(1){animation-delay:.05s}
-.hero-reveal:nth-child(2){animation-delay:.15s}
-.hero-reveal:nth-child(3){animation-delay:.25s}
-.hero-reveal:nth-child(4){animation-delay:.35s}
-.hero-reveal:nth-child(5){animation-delay:.45s}
+.hero-reveal{opacity:0;transform:translateY(18px);animation:baHeroIn .5s var(--ease-out) forwards}
+.hero-reveal:nth-child(1){animation-delay:0s}
+.hero-reveal:nth-child(2){animation-delay:.05s}
+.hero-reveal:nth-child(3){animation-delay:.1s}
+.hero-reveal:nth-child(4){animation-delay:.15s}
+.hero-reveal:nth-child(5){animation-delay:.15s}
 @keyframes baHeroIn{to{opacity:1;transform:translateY(0)}}
 @media (prefers-reduced-motion:reduce){
   .ba-hero-bg{animation:none}
@@ -440,6 +455,10 @@ img,video,iframe{max-width:100%;height:auto}
 @media (min-width:640px){.section-container{padding-inline:var(--sp-lg)}}
 @media (prefers-reduced-motion:reduce){.section-title::after{background:var(--primary-color)}}
 /* ===== End Unified Section Layout ===== */
+
+/* ===== Performance: content-visibility للاقسام البعيدة (تحت الطية) ===== */
+#main > section:not(.ba-hero),.ba-features-strip,.ba-best-section,.ba-learn-strip,.ba-final-strip{content-visibility:auto;contain-intrinsic-size:auto 900px}
+/* ===== End content-visibility ===== */
 ]]></b:skin>
 </head>
 
