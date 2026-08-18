@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System Preview — Blogarch</title>
+<style>
+:root{
+  /* Brand channels */
+  --c-primary-h:243;--c-primary-s:75%;--c-primary-l:59%;
+  --c-secondary-h:262;--c-secondary-s:83%;--c-secondary-l:58%;
+  --c-accent-h:160;--c-accent-s:84%;--c-accent-l:39%;
+  /* Neutral slate */
+  --n-50:#f8fafc;--n-100:#f1f5f9;--n-200:#e2e8f0;--n-300:#cbd5e1;--n-400:#94a3b8;--n-500:#64748b;--n-600:#475569;--n-700:#334155;--n-800:#1e293b;--n-900:#0f172a;
+  /* Semantic channels */
+  --c-success-h:160;--c-success-s:84%;--c-success-l:39%;
+  --c-warning-h:38;--c-warning-s:92%;--c-warning-l:50%;
+  --c-error-h:0;--c-error-s:84%;--c-error-l:60%;
+  --c-info-h:217;--c-info-s:91%;--c-info-l:60%;
+  --c-success:hsl(var(--c-success-h) var(--c-success-s) var(--c-success-l));
+  --c-warning:hsl(var(--c-warning-h) var(--c-warning-s) var(--c-warning-l));
+  --c-error:hsl(var(--c-error-h) var(--c-error-s) var(--c-error-l));
+  --c-info:hsl(var(--c-info-h) var(--c-info-s) var(--c-info-l));
+  /* Applied tokens */
+  --primary-color:hsl(var(--c-primary-h) var(--c-primary-s) var(--c-primary-l));
+  --primary-hover:hsl(var(--c-primary-h) var(--c-primary-s) 50%);
+  --primary-light:hsl(var(--c-primary-h) var(--c-primary-s) 96%);
+  --secondary-color:hsl(var(--c-secondary-h) var(--c-secondary-s) var(--c-secondary-l));
+  --accent:hsl(var(--c-accent-h) var(--c-accent-s) var(--c-accent-l));
+  --accent-hover:hsl(var(--c-accent-h) var(--c-accent-s) 31%);
+  --accent-fg:#fff;
+  --bg:#f8fafc;--bg-elevated:#ffffff;--bg-subtle:#f1f5f9;--bg-muted:#e2e8f0;
+  --text:#0f172a;--text-light:#1e293b;--text-soft:#334155;--text-muted:#64748b;
+  --card:#ffffff;--border:#e2e8f0;--border-strong:#cbd5e1;--ring:var(--primary-color);
+  /* Typography */
+  --font-sans:'Tajawal',system-ui,sans-serif;
+  --font-serif:'Alexandria',Georgia,serif;
+  --font-display:'Amiri','Alexandria',serif;
+  --fs-xs:.75rem;--fs-sm:.875rem;--fs-base:1rem;--fs-lg:1.125rem;--fs-xl:1.25rem;--fs-2xl:1.5rem;--fs-3xl:1.875rem;--fs-4xl:2.25rem;
+  --fw-light:300;--fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;
+  --lh-tight:1.25;--lh-normal:1.6;--lh-relaxed:1.8;--lh-loose:2;
+  --ls-tight:-.02em;--ls-wide:.025em;--ls-wider:.05em;
+  /* Spacing */
+  --sp-xs:.25rem;--sp-sm:.5rem;--sp-md:1rem;--sp-lg:1.5rem;--sp-xl:2rem;--sp-2xl:3rem;--sp-3xl:4rem;--sp-4xl:6rem;
+  /* Radius */
+  --r-xs:4px;--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;--r-2xl:32px;--r-full:9999px;
+  /* Shadow */
+  --sh-sm:0 1px 2px rgba(15,23,42,.06),0 1px 3px rgba(15,23,42,.1);
+  --sh-md:0 4px 6px -1px rgba(15,23,42,.1),0 2px 4px -2px rgba(15,23,42,.1);
+  --sh-lg:0 10px 15px -3px rgba(15,23,42,.1),0 4px 6px -4px rgba(15,23,42,.1);
+  --sh-xl:0 20px 25px -5px rgba(15,23,42,.1),0 8px 10px -6px rgba(15,23,42,.1);
+  --sh-2xl:0 25px 50px -12px rgba(15,23,42,.18);
+  /* Component */
+  --btn-radius:var(--r-md);--btn-padding:.7rem 1.4rem;
+  --card-radius:var(--r-lg);--card-padding:1.5rem;
+  --input-radius:var(--r-md);--input-padding:.65rem .85rem;
+  --nav-h:62px;
+}
+body[data-dark]{
+  --bg:#0f172a;--bg-elevated:#1e293b;--bg-subtle:#18233b;--bg-muted:#334155;
+  --text:#f8fafc;--text-light:#f1f5f9;--text-soft:#e2e8f0;--text-muted:#94a3b8;
+  --card:#1e293b;--border:#334155;--border-strong:#475569;
+  --primary-color:hsl(var(--c-primary-h) var(--c-primary-s) 68%);
+  --primary-hover:hsl(var(--c-primary-h) var(--c-primary-s) 72%);
+  --primary-light:hsl(var(--c-primary-h) var(--c-primary-s) 22%);
+  --accent:hsl(var(--c-accent-h) var(--c-accent-s) 45%);
+  --accent-hover:hsl(var(--c-accent-h) var(--c-accent-s) 50%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:var(--lh-normal);padding-bottom:4rem;transition:background .3s,color .3s}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+header.nav{position:sticky;top:0;z-index:50;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;background:color-mix(in srgb,var(--bg-elevated) 85%,transparent);backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid var(--border);padding:0 1.25rem}
+.brand{font-family:var(--font-display);font-weight:700;font-size:1.2rem}
+.toggle{font-family:var(--font-sans);font-weight:600;padding:.45rem .9rem;border-radius:var(--r-full);border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer}
+section{margin-top:3rem}
+h2.sec{font-family:var(--font-display);font-size:var(--fs-2xl);margin-bottom:1rem;letter-spacing:var(--ls-tight)}
+.sub{color:var(--text-muted);margin-bottom:1.5rem;font-size:var(--fs-sm)}
+.grid{display:grid;gap:1rem}
+.swatches{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.sw{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm)}
+.sw .chip{height:64px}
+.sw .meta{padding:.6rem .75rem;font-size:.72rem;font-family:ui-monospace,monospace}
+.sw .meta b{display:block;font-size:.82rem;font-family:var(--font-sans);margin-bottom:.15rem}
+.neutral{grid-template-columns:repeat(10,1fr)}
+.neutral .sw{box-shadow:none}
+.neutral .meta{font-size:.6rem;text-align:center}
+.typo .row{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1rem 1.25rem;margin-bottom:.75rem}
+.typo .label{font-size:.7rem;color:var(--text-muted);font-family:ui-monospace,monospace;margin-bottom:.25rem}
+.spc{display:flex;align-items:flex-end;gap:.5rem;flex-wrap:wrap}
+.spc .box{background:var(--primary-color);border-radius:var(--r-sm)}
+.spc .cap{font-size:.7rem;color:var(--text-muted);font-family:ui-monospace,monospace}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+.btn{font-family:var(--font-sans);font-weight:var(--fw-semibold);padding:var(--btn-padding);border-radius:var(--btn-radius);border:none;cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s;font-size:var(--fs-base)}
+.btn--primary{background:var(--primary-color);color:#fff}
+.btn--primary:hover{background:var(--primary-hover);transform:translateY(-2px);box-shadow:var(--sh-md)}
+.btn--secondary{background:var(--secondary-color);color:#fff}
+.btn--accent{background:var(--accent);color:var(--accent-fg)}
+.btn--ghost{background:transparent;color:var(--primary-color);border:1.5px solid var(--border)}
+.btn--ghost:hover{background:var(--primary-light)}
+.btn--sm{padding:.45rem 1rem;font-size:var(--fs-sm)}
+.btn--lg{padding:.9rem 1.8rem;font-size:var(--fs-lg)}
+.cards{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--card-radius);padding:var(--card-padding);box-shadow:var(--sh-md)}
+.card h3{font-family:var(--font-display);font-size:var(--fs-xl);margin-bottom:.5rem}
+.card p{color:var(--text-soft);font-size:var(--fs-sm);line-height:var(--lh-relaxed)}
+.card .tag{display:inline-block;margin-top:.8rem;padding:.25rem .7rem;border-radius:var(--r-full);background:var(--primary-light);color:var(--primary-color);font-size:.7rem;font-weight:700}
+.sem{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+.sem .s{display:flex;align-items:center;gap:.6rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:.8rem 1rem}
+.sem .dot{width:28px;height:28px;border-radius:var(--r-full)}
+.sem .t b{display:block;font-size:.85rem}
+.sem .t span{font-size:.7rem;color:var(--text-muted);font-family:ui-monospace,monospace}
+.input-demo{display:flex;flex-direction:column;gap:.75rem;max-width:360px}
+.input{font-family:inherit;font-size:var(--fs-base);padding:var(--input-padding);border:1px solid var(--border);border-radius:var(--input-radius);background:var(--bg-elevated);color:var(--text)}
+.input:focus{outline:none;border-color:var(--primary-color);box-shadow:0 0 0 4px hsl(var(--c-primary-h) var(--c-primary-s) var(--c-primary-l) / .12)}
+.rad{grid-template-columns:repeat(auto-fill,minmax(90px,1fr))}
+.rad .r{background:var(--card);border:1px solid var(--border);padding:1rem .5rem;text-align:center;font-size:.65rem;color:var(--text-muted)}
+.rad .demo{height:48px;background:var(--primary-color);margin-bottom:.5rem}
+.sh{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.sh .b{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);height:80px}
+.sh .cap{text-align:center;font-size:.65rem;color:var(--text-muted);margin-top:.4rem;font-family:ui-monospace,monospace}
+footer{margin-top:4rem;text-align:center;color:var(--text-muted);font-size:.78rem}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="brand">Blogarch · Design System</div>
+  <button class="toggle" id="themeBtn">تبديل الوضع الداكن</button>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <h2 class="sec">أ. لوحة الألوان — Primary &amp; Accent</h2>
+    <p class="sub">مبنية على قنوات HSL: Primary (Indigo) · Secondary (Violet) · Accent (Emerald)</p>
+    <div class="grid swatches">
+      <div class="sw"><div class="chip" style="background:var(--primary-color)"></div><div class="meta"><b>Primary</b>#4f46e5<br>hsl(243 75% 59%)</div></div>
+      <div class="sw"><div class="chip" style="background:hsl(243 75% 50%)"></div><div class="meta"><b>Primary Hover</b>#4338ca</div></div>
+      <div class="sw"><div class="chip" style="background:hsl(243 75% 41%)"></div><div class="meta"><b>Primary Dark</b>#3730a3</div></div>
+      <div class="sw"><div class="chip" style="background:var(--primary-light)"></div><div class="meta"><b>Primary Light</b>#eef2ff</div></div>
+      <div class="sw"><div class="chip" style="background:var(--secondary-color)"></div><div class="meta"><b>Secondary</b>#7c3aed</div></div>
+      <div class="sw"><div class="chip" style="background:var(--accent)"></div><div class="meta"><b>Accent</b>#059669</div></div>
+      <div class="sw"><div class="chip" style="background:var(--accent-hover)"></div><div class="meta"><b>Accent Hover</b>#047857</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">أ.4 المقياس المحايد (Neutral · Slate)</h2>
+    <p class="sub">من الأبيض إلى الأسود — 10 درجات (50 → 900)</p>
+    <div class="grid neutral">
+      <div class="sw"><div class="chip" style="background:var(--n-50)"></div><div class="meta">50<br>#f8fafc</div></div>
+      <div class="sw"><div class="chip" style="background:var(--n-100)"></div><div class="meta">100<br>#f1f5f9</div></div>
+      <div class="sw"><div class="chip" style="background:var(--n-200)"></div><div class="meta">200<br>#e2e8f0</div></div>
+      <div class="sw"><div class="chip" style="background:var(--n-300)"></div><div class="meta">300<br>#cbd5e1</div></div>
+      <div class="sw"><div class="chip" style="background:var(--n-400)"></div><div class="meta">400<br>#94a3b8</div></div>
+      <div class="sw"><div class="chip" style="background:var(--n-500)"></div><div class="meta">500<br>#64748b</div></div>
+      <div class="sw"><div class="chip" style="background:var(--n-600)"></div><div class="meta">600<br>#475569</div></div>
+      <div class="sw"><div class="chip" style="background:var(--n-700)"></div><div class="meta">700<br>#334155</div></div>
+      <div class="sw"><div class="chip" style="background:var(--n-800)"></div><div class="meta">800<br>#1e293b</div></div>
+      <div class="sw"><div class="chip" style="background:var(--n-900)"></div><div class="meta">900<br>#0f172a</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">أ.5 الألوان الدلالية (Semantic)</h2>
+    <div class="grid sem">
+      <div class="s"><span class="dot" style="background:var(--c-success)"></span><span class="t"><b>Success</b><span>#10b981</span></span></div>
+      <div class="s"><span class="dot" style="background:var(--c-warning)"></span><span class="t"><b>Warning</b><span>#f59e0b</span></span></div>
+      <div class="s"><span class="dot" style="background:var(--c-error)"></span><span class="t"><b>Error</b><span>#ef4444</span></span></div>
+      <div class="s"><span class="dot" style="background:var(--c-info)"></span><span class="t"><b>Info</b><span>#3b82f6</span></span></div>
+    </div>
+  </section>
+
+  <section class="typo">
+    <h2 class="sec">ب. مقياس الخطوط (Typography)</h2>
+    <p class="sub">Tajawal (UI) · Alexandria (Serif) · Amiri (Display)</p>
+    <div class="row"><div class="label">--fs-4xl · Display</div><div style="font-family:var(--font-display);font-size:var(--fs-4xl);font-weight:700;letter-spacing:var(--ls-tight)">تصميم عصري لعالم عربي</div></div>
+    <div class="row"><div class="label">--fs-3xl · Display</div><div style="font-family:var(--font-display);font-size:var(--fs-3xl);font-weight:700">نظام تصميم متكامل</div></div>
+    <div class="row"><div class="label">--fs-2xl · Sans Bold</div><div style="font-family:var(--font-sans);font-size:var(--fs-2xl);font-weight:var(--fw-bold)">عناوين المقالات الرئيسية</div></div>
+    <div class="row"><div class="label">--fs-xl · Sans Semibold</div><div style="font-family:var(--font-sans);font-size:var(--fs-xl);font-weight:var(--fw-semibold)">عناوين الأقسام</div></div>
+    <div class="row"><div class="label">--fs-base · Sans Regular (جسم)</div><div style="font-family:var(--font-sans);font-size:var(--fs-base);font-weight:var(--fw-regular);line-height:var(--lh-relaxed)">هذا نص تجريبي يوضح سطراً كاملاً من المحتوى بالوزن العادي وارتفاع السطر المريح للقراءة الطويلة.</div></div>
+    <div class="row"><div class="label">--fs-sm · Sans</div><div style="font-family:var(--font-sans);font-size:var(--fs-sm);font-weight:var(--fw-medium)">نص ثانوي وحواشي</div></div>
+    <div class="row"><div class="label">--fs-xs · Sans</div><div style="font-family:var(--font-sans);font-size:var(--fs-xs);font-weight:var(--fw-medium)">تلميحات وتذييل</div></div>
+  </section>
+
+  <section>
+    <h2 class="sec">ج. نظام المسافات (Spacing · 4px base)</h2>
+    <div class="spc">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.4rem"><div class="box" style="width:var(--sp-xs);height:var(--sp-xs)"></div><div class="cap">xs 4</div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.4rem"><div class="box" style="width:var(--sp-sm);height:var(--sp-sm)"></div><div class="cap">sm 8</div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.4rem"><div class="box" style="width:var(--sp-md);height:var(--sp-md)"></div><div class="cap">md 16</div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.4rem"><div class="box" style="width:var(--sp-lg);height:var(--sp-lg)"></div><div class="cap">lg 24</div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.4rem"><div class="box" style="width:var(--sp-xl);height:var(--sp-xl)"></div><div class="cap">xl 32</div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.4rem"><div class="box" style="width:var(--sp-2xl);height:var(--sp-2xl)"></div><div class="cap">2xl 48</div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.4rem"><div class="box" style="width:var(--sp-3xl);height:var(--sp-3xl)"></div><div class="cap">3xl 64</div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.4rem"><div class="box" style="width:var(--sp-4xl);height:var(--sp-4xl)"></div><div class="cap">4xl 96</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">د. الزوايا (Border Radius)</h2>
+    <div class="grid rad">
+      <div class="r"><div class="demo" style="border-radius:var(--r-xs)"></div>xs 4</div>
+      <div class="r"><div class="demo" style="border-radius:var(--r-sm)"></div>sm 8</div>
+      <div class="r"><div class="demo" style="border-radius:var(--r-md)"></div>md 12</div>
+      <div class="r"><div class="demo" style="border-radius:var(--r-lg)"></div>lg 16</div>
+      <div class="r"><div class="demo" style="border-radius:var(--r-xl)"></div>xl 24</div>
+      <div class="r"><div class="demo" style="border-radius:var(--r-2xl)"></div>2xl 32</div>
+      <div class="r"><div class="demo" style="border-radius:var(--r-full)"></div>full</div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">د. الظلال (Shadows)</h2>
+    <div class="grid sh">
+      <div><div class="b" style="box-shadow:var(--sh-sm)"></div><div class="cap">sm</div></div>
+      <div><div class="b" style="box-shadow:var(--sh-md)"></div><div class="cap">md</div></div>
+      <div><div class="b" style="box-shadow:var(--sh-lg)"></div><div class="cap">lg</div></div>
+      <div><div class="b" style="box-shadow:var(--sh-xl)"></div><div class="cap">xl</div></div>
+      <div><div class="b" style="box-shadow:var(--sh-2xl)"></div><div class="cap">2xl</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">هـ. الأزرار (Buttons)</h2>
+    <div class="btns">
+      <button class="btn btn--primary">أساسي</button>
+      <button class="btn btn--secondary">ثانوي</button>
+      <button class="btn btn--accent">تمييز</button>
+      <button class="btn btn--ghost">شبح</button>
+      <button class="btn btn--primary btn--sm">صغير</button>
+      <button class="btn btn--primary btn--lg">كبير</button>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">هـ. البطاقات (Cards)</h2>
+    <div class="grid cards">
+      <div class="card"><h3>عنوان البطاقة</h3><p>نموذج بطاقة بمحتوى تجريبي يوضح الحدود والظل ونصف القطر الموحّد من نظام التصميم.</p><span class="tag">وسم</span></div>
+      <div class="card"><h3>بطاقة ثانوية</h3><p>تدعم الوضع الداكن تلقائياً عبر متغيرات CSS المركزية ونفس الرموز.</p><span class="tag">مميَّز</span></div>
+      <div class="card"><h3>بطاقة ثالثة</h3><p>قابلة لإعادة الاستخدام في الشبكات والمقالات والجانب.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">هـ. حقول الإدخال (Inputs)</h2>
+    <div class="input-demo">
+      <input class="input" placeholder="حقل نص عادي">
+      <input class="input" placeholder="حقل مع تركيز..." value="اكتب هنا">
+      <textarea class="input" rows="3" placeholder="منطقة نص"></textarea>
+    </div>
+  </section>
+
+  <footer>Design System Preview · Blogarch/blogach — ملف ثابت لعرض النظام قبل تطبيقه على القالب.</footer>
+</div>
+
+<script>
+document.getElementById('themeBtn').addEventListener('click',function(){
+  document.body.toggleAttribute('data-dark');
+});
+</script>
+</body>
+</html>
